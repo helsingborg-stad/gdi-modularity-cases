@@ -27,32 +27,6 @@ export interface CaseAction {
 	typeHint?: string
 }
 
-
-
-export interface PersonInput {
-	email: string
-	phoneNumber: string
-}
-
-export interface PersonEmail {
-	address: string
-	isVerified?: boolean
-	verifiedDate?: string
-}
-export interface PersonPhone {
-	number: string,
-	isVerified?: boolean
-	verifiedDate?: string
-}
-export interface Person {
-	id: string
-	type: string
-	firstName: string
-	lastName: string
-	email?: PersonEmail
-	phone?: PersonPhone
-}
-
 export interface AboutMeContextType {
 	listCases: () => Promise<Case[]>
 }

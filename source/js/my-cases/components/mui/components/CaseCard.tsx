@@ -17,7 +17,6 @@ const CaseCard = ({
 		label,
 		description,
 		status,
-		statusHint,
 		actions,
 		renderChildren
 	}

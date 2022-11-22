@@ -22,10 +22,10 @@ const CasesTabView = ({cases}: {cases: Case[]}) => {
 		tabContent: () => <>{groupedCases['todo']?.map(c => <CaseView data={c} />)}</>
 	}, {
 		label: phrase('cases.grouping.inprogress', 'Pågående'),
-		tabContent: () => <>{groupedCases['inprogress'].map(c => <CaseView data={c} />)}</>
+		tabContent: () => <>{groupedCases['inprogress']?.map(c => <CaseView data={c} />)}</>
 	}, {
 		label: phrase('cases.grouping.closed', 'Avslutade'),
-		tabContent: () => <>{groupedCases['closed'].map(c => <CaseView data={c} />)}</>
+		tabContent: () => <>{groupedCases['closed']?.map(c => <CaseView data={c} />)}</>
 	}])
 	return (
 		<TabView tabs={tabs} />
