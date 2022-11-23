@@ -7,10 +7,10 @@
           "caseId": "case-2684",
           "description": "Anmälan om ändrade förhållanden",
           "label": "Anmälan om ändrade förhållanden",
-          "statusHint": null,
+          "statusHint": "incomplete",
           "subjectId": "19710101",
           "updateTime": "2021-04-17",
-          "status": "",
+          "status": "incomplete",
           "events": [
             {
               "description": "Handläggarens notering 2020-11-22",

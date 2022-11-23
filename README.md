@@ -43,3 +43,20 @@ cp .env.example .env
 # start web server
 yarn start
 ```
+
+## External connections and fake data
+
+GraphQL endpoints (to a GDI About Me server) is configured in `.env` during development.
+
+```
+# Serve graphql from real endpoint
+ABOUTME_GRAPHQL_URI=https://mycompany/api/v1/aboutme/graphql
+```
+
+```
+# Serve graphql from file in ./dev-static
+ABOUTME_GRAPHQL_URI=/dev-static/sample-aboutme-graphql-response.json
+```
+
+
+This plugin send GraphQL queries to a running GDI About Me server.
