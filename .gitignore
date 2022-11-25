@@ -160,3 +160,4 @@ dist/.temp
 !.gitignore
 !.editorconfig
 !.github
+!.env.example
