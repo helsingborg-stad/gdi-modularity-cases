@@ -11,7 +11,7 @@ class App
 
     public function registerModules()
     {
-        foreach (['mod-cases' => 'AboutMe'] as $slug => $name) {
+        foreach (['mod-my-cases' => 'MyCases'] as $slug => $name) {
             if (function_exists('modularity_register_module')) {
                 modularity_register_module(
                     GDI_CASES_MODULE_PATH . "/" . $name,
