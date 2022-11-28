@@ -25,7 +25,7 @@ yarn watch
 wp plugin activate gdi-modularity-cases --url=example.local
 
 # configure graphql endpoint (using wp-cli)
-wp option update options_CASES_graphql_uri http://localhost:3000/api/v1/aboutme/graphql --url=example.local
+wp option update options_cases_api_uri http://localhost:3000/api/v1/aboutme/graphql --url=example.local
 
 ```
 
