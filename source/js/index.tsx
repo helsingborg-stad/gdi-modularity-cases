@@ -4,10 +4,10 @@ import './index.css'
 import App from './App'
 
 document.addEventListener('DOMContentLoaded', function () {
-	[...document.querySelectorAll('.js-gdi-modularity-cases')]
+	[...document.querySelectorAll('.js-gdi-modularity-my-cases')]
 		.map(e => ({
 			root: ReactDOM.createRoot(e as HTMLElement),
-			aboutMeGraphQLUri: e.getAttribute('data-cases-graphql-uri') ?? '',
+			aboutMeGraphQLUri: e.getAttribute('data-about-me-graphql-uri') ?? '',
 		}))
 		.filter(({ aboutMeGraphQLUri }) => aboutMeGraphQLUri.length > 0)
 		.forEach(({ root, aboutMeGraphQLUri }) => {
