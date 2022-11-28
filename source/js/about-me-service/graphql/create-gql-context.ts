@@ -33,16 +33,27 @@ query Cases {
   }
 }
 `
-const gql = (uri: string, query: string, variables: object) => axios({
-	method: 'post',
-	url: `${uri}`,
-	data: {
-		query,
-		variables,
-	},
+const gql = (uri: string, query: string, variables: object, headers: object = {}) => axios({
+  method: 'post',
+  url: `${uri}`,
+  data: {
+    query,
+    variables,
+  },
+  headers,
 })
 
+
+const tryGetAuthorizationHeaders = async () => {
+  const { token } = await window.gdiHost.getAccessToken()
+  return token ? {
+    Authorization: `Bearer ${token}`,
+  } : {}
+}
+
 export const createGqlContext = (uri: string): AboutMeContextType => ({
-	listCases: () => gql(uri, queryCases, {})
-		.then(response => response?.data?.data?.me?.cases || [])
+  listCases: () =>
+    tryGetAuthorizationHeaders()
+      .then(headers => gql(uri, queryCases, {}, headers))
+      .then(response => response?.data?.data?.me?.cases || [])
 })
