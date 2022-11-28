@@ -31,5 +31,17 @@ require_once GDI_CASES_PATH . 'Public.php';
 // Register the autoloader
 require __DIR__ . '/vendor/autoload.php';
 
+// Acf auto import and export
+add_action('acf/init', function () {
+    $acfExportManager = new \AcfExportManager\AcfExportManager();
+    $acfExportManager->setTextdomain(GDI_CASES_TEXT_DOMAIN);
+    $acfExportManager->setExportFolder(GDI_CASES_PATH . 'source/php/AcfFields/');
+    $acfExportManager->autoExport(array(
+        'cases-options' => 'group_6384c29dbf81f'
+    ));
+    $acfExportManager->import();
+});
+
+
 // Start application
 new GdiCases\App();
