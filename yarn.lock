@@ -1318,6 +1318,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@helsingborg-stad/municipio-react-ui@^0.3.0":
+  version "0.3.0"
+  resolved "https://npm.pkg.github.com/download/@helsingborg-stad/municipio-react-ui/0.3.0/3e6b9c4c974f099da5214543355dc3f2c42d2d49#3e6b9c4c974f099da5214543355dc3f2c42d2d49"
+  integrity sha512-rvSEZprijL9wiNevYe0/mlYBuq5bZal78+cZOX241lA+L0tticifDBqcFCvAWiOZptPPeCUPNBvBiVNLhn+p1g==
+
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.7.tgz#38aec044c6c828f6ed51d5d7ae3d9b9faf6dbb0f"
