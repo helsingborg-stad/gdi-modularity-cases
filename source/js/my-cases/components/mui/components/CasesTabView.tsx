@@ -26,6 +26,16 @@ const CasesTabView = ({ cases }: { cases: Case[] }) => {
 
   const [tabs] = useState([
     {
+      label: phrase("cases.grouping.all", "Alla"),
+      tabContent: () => (
+        <>
+          {[...cases].map((c) => (
+            <CaseView data={c} />
+          ))}
+        </>
+      ),
+    },
+    {
       label: phrase("cases.grouping.todo", "Att Göra"),
       tabContent: () => (
         <>
