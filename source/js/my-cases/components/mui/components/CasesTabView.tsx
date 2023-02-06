@@ -12,6 +12,14 @@ const StatusHintMapping: Record<string, string> = {
   incomplete: "todo",
 };
 
+const renderCases = (items: Case[]) => (
+  <div>
+    {items.map((data) => (
+      <CaseView key={data.caseId} {...{ data }} />
+    ))}
+  </div>
+);
+
 const CasesTabView = ({ cases }: { cases: Case[] }) => {
   const { phrase } = useContext(PhraseContext);
 
@@ -27,43 +35,19 @@ const CasesTabView = ({ cases }: { cases: Case[] }) => {
   const [tabs] = useState([
     {
       label: phrase("cases.grouping.all", "Alla"),
-      tabContent: () => (
-        <>
-          {[...cases].map((c) => (
-            <CaseView data={c} />
-          ))}
-        </>
-      ),
+      tabContent: () => renderCases([...cases]),
     },
     {
       label: phrase("cases.grouping.todo", "Att Göra"),
-      tabContent: () => (
-        <>
-          {groupedCases["todo"]?.map((c) => (
-            <CaseView data={c} />
-          ))}
-        </>
-      ),
+      tabContent: () => renderCases([...(groupedCases["todo"] ?? [])]),
     },
     {
       label: phrase("cases.grouping.inprogress", "Pågående"),
-      tabContent: () => (
-        <>
-          {groupedCases["inprogress"]?.map((c) => (
-            <CaseView data={c} />
-          ))}
-        </>
-      ),
+      tabContent: () => renderCases([...(groupedCases["inprogress"] ?? [])]),
     },
     {
       label: phrase("cases.grouping.closed", "Avslutade"),
-      tabContent: () => (
-        <>
-          {groupedCases["closed"]?.map((c) => (
-            <CaseView data={c} />
-          ))}
-        </>
-      ),
+      tabContent: () => renderCases([...(groupedCases["closed"] ?? [])]),
     },
   ]);
   return <TabView tabs={tabs} />;
