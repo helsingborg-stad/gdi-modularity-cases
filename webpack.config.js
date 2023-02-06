@@ -85,8 +85,17 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: ['babel-loader', 'ts-loader'],
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!(@helsingborg-stad\/municipio-react-ui\/src)\/).*/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', { targets: { node: 'current' } }],
+              '@babel/preset-typescript',
+              ['@babel/preset-react', { runtime: 'automatic' }],
+            ],
+          },
+        },
       },
     ],
   },

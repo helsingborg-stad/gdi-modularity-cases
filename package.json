@@ -5,6 +5,7 @@
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@helsingborg-stad/municipio-react-ui": "https://github.com/helsingborg-stad/municipio-react-ui.git#develop",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
