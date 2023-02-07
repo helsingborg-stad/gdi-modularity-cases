@@ -12,7 +12,11 @@ const CaseEvents = ({ events }: { events: CaseEvent[] }) => (
         <CaseEventView
           key={`${label}-${updateTime}`}
           title={label ?? description ?? ""}
-          date={updateTime}
+          date={
+            Date.parse(updateTime)
+              ? new Date(updateTime).toLocaleDateString("sv-se")
+              : updateTime
+          }
           {...(i === 0
             ? {
                 active: true,
