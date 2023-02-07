@@ -1,4 +1,4 @@
-import { Typography } from "@helsingborg-stad/municipio-react-ui";
+import { Button, Typography } from "@helsingborg-stad/municipio-react-ui";
 import {
   Accordion,
   AccordionSummary,
@@ -18,7 +18,7 @@ const CaseView = ({
   <Accordion>
     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
       <Stack direction="column" spacing={0}>
-        <Typography variant="h5" gutterBottom>
+        <Typography as="h4" gutterBottom>
           {label}
         </Typography>
         <Typography variant="meta">{updateTime}</Typography>
@@ -31,8 +31,36 @@ const CaseView = ({
         </Stack>
       </div>
     </AccordionSummary>
-    <AccordionDetails className="u-color__bg--lighter u-padding__left--1 u-padding__right--2 u-padding__y--2">
+    <AccordionDetails className="u-color__bg--lighter u-padding__x--2 u-padding__y--4">
       {events && <CaseEvents events={events ?? []} />}
+      {actions?.length &&
+      events?.length &&
+      events?.length > 0 &&
+      actions?.length > 0 ? (
+        <hr
+          className="u-margin__y--3"
+          style={{
+            border: "solid 1px #0000000f",
+            marginLeft: "-18px",
+            marginRight: "-18px",
+          }}
+        />
+      ) : null}
+      {actions && actions.length > 0 && (
+        <div className="u-display--flex u-justify-content--end">
+          {actions.map(({ label, url }) => (
+            <Button
+              key="label-url"
+              variant="filled"
+              color="primary"
+              href={url}
+              target="_blank"
+            >
+              {label}
+            </Button>
+          ))}
+        </div>
+      )}
     </AccordionDetails>
   </Accordion>
 );

@@ -6,6 +6,7 @@ import {
   TimelineHeader,
   TimelineTitle,
   Button,
+  TimelineSecondary,
 } from "@helsingborg-stad/municipio-react-ui";
 
 const CaseEventView = ({
@@ -28,31 +29,34 @@ const CaseEventView = ({
     <TimelineConnector />
     <TimelineBody>
       <TimelineHeader>
-        <div className="o-grid u-justify-content--center u-align-items--center">
-          <div className="o-grid-auto">
-            <TimelineTitle as="h4">{title}</TimelineTitle>
-            {description && (
-              <div>
-                <Typography as="p" variant="meta">
-                  {description}
-                </Typography>
-              </div>
-            )}
-
-            {actions.map(({ text, url }, i) => (
-              <Button key={`${text}-${url}`} as="a" href={url} variant="basic">
-                {text}
-              </Button>
-            ))}
-          </div>
-          <div className="o-grid-fit u-align-self--start">
-            <Typography as="p" variant="meta" gutterTop={false}>
-              {date}
+        <TimelineTitle as="h5" variant="p">
+          {title}
+        </TimelineTitle>
+        {description && (
+          <div>
+            <Typography as="p" variant="meta">
+              {description}
             </Typography>
           </div>
-        </div>
+        )}
       </TimelineHeader>
+      {actions.map(({ text, url }, i) => (
+        <Button
+          key={`${text}-${url}`}
+          as="a"
+          href={url}
+          variant="basic"
+          target="_blank"
+        >
+          {text}
+        </Button>
+      ))}
     </TimelineBody>
+    <TimelineSecondary>
+      <Typography as="p" variant="meta" gutterTop={false}>
+        {date}
+      </Typography>
+    </TimelineSecondary>
   </TimelineItem>
 );
 
