@@ -21,7 +21,11 @@ const CaseView = ({
         <Typography as="h4" gutterBottom>
           {label}
         </Typography>
-        <Typography variant="meta">{updateTime}</Typography>
+        <Typography variant="meta">
+          {Date.parse(updateTime)
+            ? new Date(updateTime).toLocaleDateString("sv-se")
+            : updateTime}
+        </Typography>
       </Stack>
       <div className="u-margin__left--auto u-margin__right--2 u-margin__y--1">
         <Stack direction="row" alignItems="center" spacing={0}>
