@@ -17,14 +17,14 @@ const CaseEvents = ({ events }: { events: CaseEvent[] }) => (
               ? new Date(updateTime).toLocaleDateString("sv-se")
               : updateTime
           }
+          description={label ? description : undefined}
+          actions={actions.map(({ label, url }) => ({
+            text: label,
+            url,
+          }))}
           {...(i === 0
             ? {
                 active: true,
-                description: label ? description : undefined,
-                actions: actions.map(({ label, url }) => ({
-                  text: label,
-                  url,
-                })),
               }
             : {})}
         />
