@@ -11,7 +11,7 @@ import { Case } from "../../../../about-me-service/AboutMeContext";
 import CaseEvents from "./CaseEvents";
 
 const CaseView = ({
-  data: { events, label, updateTime, status, statusHint, actions },
+  data: { events, label, updateTime, status, statusHint, actions, organization },
 }: {
   data: Case;
 }): JSX.Element => (
@@ -21,7 +21,10 @@ const CaseView = ({
         <Typography as="h4" gutterBottom>
           {label}
         </Typography>
-        <Typography variant="meta">
+        <Typography variant="meta" as="span">
+          {organization}
+        </Typography>
+        <Typography variant="meta" className="u-margin__top--1">
           {Date.parse(updateTime)
             ? new Date(updateTime).toLocaleDateString("sv-se")
             : updateTime}

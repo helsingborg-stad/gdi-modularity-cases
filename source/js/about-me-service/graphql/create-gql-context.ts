@@ -13,6 +13,7 @@ query Cases {
       subjectId
       updateTime
       status
+      organization
       events {
         description
         status
@@ -32,7 +33,7 @@ query Cases {
     }
   }
 }
-`
+`;
 const gql = (uri: string, query: string, variables: object, headers: object = {}) => axios({
   method: 'post',
   url: `${uri}`,

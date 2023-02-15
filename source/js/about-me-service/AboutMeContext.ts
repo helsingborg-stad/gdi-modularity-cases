@@ -9,6 +9,7 @@ export interface Case {
 	description?: string
 	status?: string
 	statusHint?: string
+	organization?: string
 	events?: CaseEvent[]
 	actions?: CaseAction[]
 }
