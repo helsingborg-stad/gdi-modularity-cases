@@ -10,6 +10,7 @@ const CaseEvents = ({ events }: { events: CaseEvent[] }) => (
         i
       ) => (
         <CaseEventView
+          active={i === 0}
           key={`${label}-${updateTime}`}
           title={label ?? description ?? ""}
           date={
@@ -22,11 +23,6 @@ const CaseEvents = ({ events }: { events: CaseEvent[] }) => (
             text: label,
             url,
           }))}
-          {...(i === 0
-            ? {
-                active: true,
-              }
-            : {})}
         />
       )
     )}
