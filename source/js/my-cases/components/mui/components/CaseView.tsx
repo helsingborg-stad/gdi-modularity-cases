@@ -17,7 +17,8 @@ const CaseView = ({
 }): JSX.Element => (
   <Accordion>
     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-      <Stack direction="column" spacing={0}>
+      <Stack  sx={{ width: { sm: 'calc(100% - 16px)'}, alignItems: { sm: 'center'}, justifyContent: { sm: 'space-between'}}} spacing={{xs: 1.5, sm: 2}} direction={{xs: 'column', sm: 'row'}}>
+      <Stack direction="column"  spacing={0}>
         <Typography as="h4" gutterBottom>
           {label}
         </Typography>
@@ -30,13 +31,12 @@ const CaseView = ({
             : updateTime}
         </Typography>
       </Stack>
-      <div className="u-margin__left--auto u-margin__right--2 u-margin__y--1">
-        <Stack direction="row" alignItems="center" spacing={0}>
-          <Typography className="u-margin__top--0">
-            {status && <Chip label={status} />}
-          </Typography>
-        </Stack>
+      <div className="u-margin__left--auto@md u-margin__right--2@md u-margin__y--1@md u-display--flex u-align-items--center">
+        <Typography className="u-margin__top--0">
+          {status && <Chip label={status} />}
+        </Typography>
       </div>
+      </Stack>
     </AccordionSummary>
     <AccordionDetails className="u-color__bg--lighter u-padding__x--2 u-padding__y--4">
       {events && <CaseEvents events={events ?? []} />}
@@ -45,7 +45,7 @@ const CaseView = ({
       events?.length > 0 &&
       actions?.length > 0 ? (
         <hr
-          className="u-margin__y--3"
+          className="u-margin__y--4"
           style={{
             border: "solid 1px #0000000f",
             marginLeft: "-18px",

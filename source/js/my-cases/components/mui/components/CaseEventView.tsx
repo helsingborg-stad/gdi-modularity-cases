@@ -27,7 +27,7 @@ const CaseEventView = ({
 }) => (
   <TimelineItem active={active} muted={!active}>
     <TimelineConnector />
-    <TimelineBody>
+    <TimelineBody  style={{minWidth: '0'}}>
       <TimelineHeader>
         <TimelineTitle as="h5" variant="p">
           {title}
