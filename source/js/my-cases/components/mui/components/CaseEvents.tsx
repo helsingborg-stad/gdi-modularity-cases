@@ -12,13 +12,13 @@ const CaseEvents = ({ events }: { events: CaseEvent[] }) => (
         <CaseEventView
           active={i === 0}
           key={`${label}-${updateTime}`}
-          title={label ?? description ?? ""}
+          title={label ?? description ?? ''}
           date={
             Date.parse(updateTime)
               ? new Date(updateTime).toLocaleDateString("sv-se")
               : updateTime
           }
-          description={label ? description : undefined}
+          description={description && label ? description : undefined}
           actions={actions.map(({ label, url }) => ({
             text: label,
             url,
