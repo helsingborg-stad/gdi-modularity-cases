@@ -15,6 +15,7 @@ query Cases {
       status
       organization
       events {
+        label
         description
         status
         statusHint
