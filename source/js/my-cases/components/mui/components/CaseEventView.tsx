@@ -47,6 +47,7 @@ const CaseEventView = ({
           href={url}
           variant="basic"
           target="_blank"
+          color="primary"
         >
           {text}
         </Button>
