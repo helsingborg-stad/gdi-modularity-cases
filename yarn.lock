@@ -1316,7 +1316,7 @@
 
 "@helsingborg-stad/municipio-react-ui@https://github.com/helsingborg-stad/municipio-react-ui.git#develop":
   version "0.3.0"
-  resolved "https://github.com/helsingborg-stad/municipio-react-ui.git#12cacc63820db5d83cabe0415ea7246f15cbcce3"
+  resolved "https://github.com/helsingborg-stad/municipio-react-ui.git#2d87c0f35a373f4ce2b20f097a66d01eeb881d21"
 
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
