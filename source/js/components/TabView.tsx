@@ -52,7 +52,7 @@ const TabView = ({tabs}: TabViewProps) => {
  
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box>
         <Tabs value={tabIndex} onChange={handleChange}>
 					{tabs.map(({label}, index) => <Tab label={label} {...a11yProps(index)} />)}
         </Tabs>
