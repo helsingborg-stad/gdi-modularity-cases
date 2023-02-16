@@ -3,18 +3,26 @@ import AboutMeContext, { AboutMeContextType } from './about-me-service/AboutMeCo
 import AboutMeProvider from './about-me-service/graphql/AboutMeProvider'
 import { createGqlContext } from './about-me-service/graphql/create-gql-context';
 import MyCases from './my-cases/MyCases';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 interface Props {
 	aboutMeGraphQLUri: string;
 	aboutMeGraphQLJson: string
 }
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: '#76232f'
+		}
+	}
+});
 
 const createFakeGQLContext = (cases: any[]): AboutMeContextType => ({
 	listCases: async () => (cases || [])
 })
 
 
-function App({ aboutMeGraphQLUri, aboutMeGraphQLJson } : Props): JSX.Element {
+function App({ aboutMeGraphQLUri, aboutMeGraphQLJson }: Props): JSX.Element {
 	const provider = useMemo(() => 
 		aboutMeGraphQLJson 
 		? createFakeGQLContext(JSON.parse(aboutMeGraphQLJson))
@@ -25,9 +33,11 @@ function App({ aboutMeGraphQLUri, aboutMeGraphQLJson } : Props): JSX.Element {
 
 	return (
 		<div className="App">
-			<AboutMeContext.Provider value={provider}>
-				<MyCases/>
-			</AboutMeContext.Provider>
+			<ThemeProvider theme={theme}>
+				<AboutMeContext.Provider value={provider}>
+					<MyCases />
+				</AboutMeContext.Provider>
+			</ThemeProvider>
 		</div>
 		)
 }
