@@ -38,7 +38,7 @@ const CaseView = ({
       </div>
       </Stack>
     </AccordionSummary>
-    <AccordionDetails className="u-color__bg--lighter u-padding__x--2 u-padding__y--4">
+    <AccordionDetails sx={{ borderTop: 1, borderColor: '#0000003d' }} className="u-color__bg--lightest u-padding__x--2 u-padding__y--4">
       {events && <CaseEvents events={events ?? []} />}
       {actions?.length &&
       events?.length &&
