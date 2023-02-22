@@ -31,7 +31,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={{ pt: 2 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -54,12 +54,13 @@ const TabView = ({tabs}: TabViewProps) => {
     <Box sx={{ width: '100%' }}>
       <Box>
         <Tabs value={tabIndex} onChange={handleChange}>
-					{tabs.map(({label}, index) => <Tab label={label} {...a11yProps(index)} />)}
+					{tabs.map(({label}, index) => <Tab key={label} label={label} {...a11yProps(index)} />)}
         </Tabs>
       </Box>
-			{tabs.map(({tabContent}, index) => <TabPanel value={tabIndex} index={index}>{tabContent()}</TabPanel>)}
+			{tabs.map(({tabContent}, index) => <TabPanel key={`${tabIndex}-${index}`} value={tabIndex} index={index}>{tabContent()}</TabPanel>)}
     </Box>
   )
 }
 
 export default TabView
+
