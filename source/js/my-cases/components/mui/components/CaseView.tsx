@@ -33,7 +33,7 @@ const CaseView = ({
       </Stack>
       <div className="u-margin__left--auto@md u-margin__right--2@md u-margin__y--1@md u-display--flex u-align-items--center">
         <Typography className="u-margin__top--0">
-          {status && <Chip label={status} />}
+          {status && <Chip color="secondary" label={status} />}
         </Typography>
       </div>
       </Stack>
