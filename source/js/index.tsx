@@ -8,12 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		.map(e => ({
 			root: ReactDOM.createRoot(e as HTMLElement),
 			aboutMeGraphQLUri: e.getAttribute('data-about-me-graphql-uri') ?? '',
+			aboutMeGraphQLJson: e.getAttribute('data-about-me-graphql-json') ?? '',
 		}))
 		.filter(({ aboutMeGraphQLUri }) => aboutMeGraphQLUri.length > 0)
-		.forEach(({ root, aboutMeGraphQLUri }) => {
+		.forEach(({ root, aboutMeGraphQLUri, aboutMeGraphQLJson }) => {
 			root.render(
 				<React.StrictMode>
-					<App {...{ aboutMeGraphQLUri }} />
+					<App {...{ aboutMeGraphQLUri, aboutMeGraphQLJson  }} />
 				</React.StrictMode>
 			)
 		})
