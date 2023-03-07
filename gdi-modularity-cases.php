@@ -37,7 +37,8 @@ add_action('acf/init', function () {
     $acfExportManager->setTextdomain(GDI_CASES_TEXT_DOMAIN);
     $acfExportManager->setExportFolder(GDI_CASES_PATH . 'source/php/AcfFields/');
     $acfExportManager->autoExport(array(
-        'cases-options' => 'group_6384c29dbf81f'
+        'cases-options' => 'group_6384c29dbf81f',
+        'module-my-cases-mock-data' => 'group_6405f86fe7e4c',
     ));
     $acfExportManager->import();
 });
