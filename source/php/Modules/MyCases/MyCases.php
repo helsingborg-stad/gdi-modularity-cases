@@ -2,6 +2,7 @@
 
 namespace GdiCases\Modules\MyCases;
 
+use Exception;
 use GdiCases\Helper\CacheBust;
 
 class MyCases extends \Modularity\Module
@@ -16,10 +17,37 @@ class MyCases extends \Modularity\Module
         $this->description = __('Modularity Module', GDI_CASES_TEXT_DOMAIN);
     }
 
+    public function getMockJson(?callable $onError): string
+    {
+        if (get_field('mock_cases', $this->ID)) {
+            $mockJson = get_field('json_mock_data', $this->ID);
+            try {
+                return base64_encode(
+                    json_encode(
+                        json_decode($mockJson, true, 512, JSON_THROW_ON_ERROR)
+                    )
+                );
+            } catch (\JsonException $e) {
+                if ($onError) {
+                    $onError($e);
+                }
+            }
+        }
+
+        return '';
+    }
+
     public function data(): array
     {
+        $jsonErrorHandler = function (\JsonException $e) {
+            if (is_user_logged_in()) {
+                echo __('Failed to parse mock JSON', GDI_CASES_TEXT_DOMAIN) . ': ' . $e->getMessage();
+            }
+        };
+
         return [
-            'aboutMeGraphQLUri' => get_field('cases_api_uri', 'options') . '/graphql'
+            'aboutMeGraphQLUri' => get_field('cases_api_uri', 'options') . '/graphql',
+            'aboutMeGraphQLJson' => $this->getMockJson($jsonErrorHandler),
         ];
     }
 

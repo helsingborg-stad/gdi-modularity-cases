@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		.map(e => ({
 			root: ReactDOM.createRoot(e as HTMLElement),
 			aboutMeGraphQLUri: e.getAttribute('data-about-me-graphql-uri') ?? '',
-			aboutMeGraphQLJson: e.getAttribute('data-about-me-graphql-json') ?? '',
+			aboutMeGraphQLJson: window.atob(e.getAttribute('data-about-me-graphql-json') ?? ''),
 		}))
 		.filter(({ aboutMeGraphQLUri }) => aboutMeGraphQLUri.length > 0)
 		.forEach(({ root, aboutMeGraphQLUri, aboutMeGraphQLJson }) => {
