@@ -29,7 +29,9 @@ load_plugin_textdomain(GDI_CASES_TEXT_DOMAIN, false, plugin_basename(dirname(__F
 require_once GDI_CASES_PATH . 'Public.php';
 
 // Register the autoloader
-require __DIR__ . '/vendor/autoload.php';
+if (file_exists(GDI_CASES_PATH . 'vendor/autoload.php')) {
+    require __DIR__ . '/vendor/autoload.php';
+}
 
 // Acf auto import and export
 add_action('acf/init', function () {
