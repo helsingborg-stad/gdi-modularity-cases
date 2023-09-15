@@ -58,6 +58,10 @@ class MyCases extends \Modularity\Module
 
     public function script()
     {
+        if (!$this->hasModule()) {
+            return;
+        }
+
         wp_enqueue_script(
             'gdi-modularity-my-cases-js',
             GDI_CASES_URL . '/dist/' . CacheBust::name('js/gdi-modularity-cases.js'),
