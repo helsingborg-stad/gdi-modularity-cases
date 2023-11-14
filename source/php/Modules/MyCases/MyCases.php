@@ -15,6 +15,7 @@ class MyCases extends \Modularity\Module
         $this->nameSingular = __('My Cases', GDI_CASES_TEXT_DOMAIN);
         $this->namePlural = __('My Cases', GDI_CASES_TEXT_DOMAIN);
         $this->description = __('Modularity Module', GDI_CASES_TEXT_DOMAIN);
+        $this->ttl = false;
     }
 
     public function getMockJson(?callable $onError): string
